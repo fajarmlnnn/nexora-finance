@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'app/theme/app_theme.dart';
+import 'features/dashboard/presentation/dashboard_page.dart';
 
 void main() {
   runApp(const NexoraApp());
@@ -19,11 +20,7 @@ class NexoraApp extends StatelessWidget {
       darkTheme: AppTheme.dark,
       themeMode: ThemeMode.system,
 
-      home: const Scaffold(
-        body: Center(
-          child: Text('Nexora Finance'),
-        ),
-      ),
+      home: const DashboardPage(),
     );
   }
 }
