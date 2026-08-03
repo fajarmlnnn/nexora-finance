@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../app/theme/app_colors.dart';
 import '../../../../app/theme/app_spacing.dart';
 import '../../../../app/theme/app_typography.dart';
+import '../../../../core/utils/currency_formatter.dart';
 import '../../../../core/widgets/app_card.dart';
 
 class BalanceCard extends StatelessWidget {
@@ -21,10 +22,6 @@ class BalanceCard extends StatelessWidget {
 
   final bool isBalanceHidden;
   final VoidCallback? onToggleVisibility;
-
-  String _money(num value) {
-    return 'Rp ${value.toStringAsFixed(0)}';
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +42,7 @@ class BalanceCard extends StatelessWidget {
           Text(
             isBalanceHidden
                 ? '••••••••'
-                : _money(totalBalance),
+                : CurrencyFormatter.format(totalBalance),
             style: AppTypography.balanceLarge.copyWith(
               color: Theme.of(context).colorScheme.onSurface,
             ),
@@ -62,7 +59,7 @@ class BalanceCard extends StatelessWidget {
                   title: 'Income',
                   value: isBalanceHidden
                       ? '••••••'
-                      : _money(income),
+                      : CurrencyFormatter.format(income),
                 ),
               ),
 
@@ -73,7 +70,7 @@ class BalanceCard extends StatelessWidget {
                   title: 'Expense',
                   value: isBalanceHidden
                       ? '••••••'
-                      : _money(expense),
+                      : CurrencyFormatter.format(expense),
                 ),
               ),
             ],
@@ -129,9 +126,7 @@ class _InfoItem extends StatelessWidget {
             size: 18,
           ),
         ),
-
         const SizedBox(width: AppSpacing.sm),
-
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
