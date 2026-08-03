@@ -112,8 +112,8 @@ abstract final class AppTypography {
   // =========================
 
   static const TextStyle balanceLarge = TextStyle(
-    fontFamily: monoFontFamily,
-    fontSize: 32,
+    fontFamily: fontFamily,
+    fontSize: 42,
     fontWeight: FontWeight.w700,
     letterSpacing: -0.5,
   );
@@ -125,7 +125,7 @@ abstract final class AppTypography {
   );
 
   static const TextStyle balanceSmall = TextStyle(
-    fontFamily: monoFontFamily,
+    fontFamily: fontFamily,
     fontSize: 18,
     fontWeight: FontWeight.w600,
   );

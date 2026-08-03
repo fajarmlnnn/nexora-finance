@@ -42,20 +42,26 @@ class DashboardHeader extends StatelessWidget {
               ],
             ),
           ),
+
           IconButton(
             onPressed: onNotificationTap,
             icon: const Icon(Icons.notifications_outlined),
           ),
+
           const SizedBox(width: AppSpacing.sm),
+
           InkWell(
             borderRadius: BorderRadius.circular(999),
             onTap: onProfileTap,
-            child: const CircleAvatar(
+            child: CircleAvatar(
               radius: 22,
               backgroundColor: AppColors.primary,
-              child: Icon(
-                Icons.person,
-                color: Colors.white,
+              child: Text(
+                userName.substring(0, 1).toUpperCase(),
+                style: AppTypography.titleMedium.copyWith(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),
@@ -68,17 +74,17 @@ class DashboardHeader extends StatelessWidget {
     final hour = DateTime.now().hour;
 
     if (hour < 12) {
-      return 'Good Morning 👋';
+      return 'Good Morning';
     }
 
     if (hour < 15) {
-      return 'Good Afternoon ☀️';
+      return 'Good Afternoon';
     }
 
     if (hour < 18) {
-      return 'Good Evening 🌇';
+      return 'Good Evening';
     }
 
-    return 'Good Night 🌙';
+    return 'Good Night';
   }
 }
